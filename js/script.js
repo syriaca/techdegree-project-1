@@ -30,6 +30,16 @@ var quotes = [
 ];
 
 // Randomize a quote form the citations array
+function getRandomBodyColor(colorRange){
+    var red = Math.floor(Math.random()*colorRange);
+    var green = Math.floor(Math.random()*colorRange);
+    var blue = Math.floor(Math.random()*colorRange);
+    var rgbColor = "rgb("+red+","+green+","+blue+")";
+    document.getElementsByTagName("body")[0].style.backgroundColor = rgbColor;
+}
+
+
+// Randomize a quote form the citations array
 function getRandomQuote(array){
     var randomNumber = Math.floor(Math.random()*array.length);
     return quotes[randomNumber];
@@ -59,6 +69,7 @@ function printQuote(){
         }
         html += '</p>';
         document.getElementById('quote-box').innerHTML = html;
+        getRandomBodyColor(256);
 }
 
 // First launch print quote
