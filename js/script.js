@@ -47,29 +47,31 @@ function getRandomQuote(array){
 
 // Construct the html and print array to the output div
 function printQuote(){
-    var randomQuote = getRandomQuote(quotes);
-    var html = '<p class="quote">';
-        html += randomQuote.quote;
-        html += '</p>';
-        html += '<p class="source">';
-        html += randomQuote.source;        
-        // Citation source only added if true
-        if (randomQuote.citation){        
-            html += '<span class="citation">' + randomQuote.citation + '</span>';
-        }
-        // Year only added if true
-        if (randomQuote.year){  
-            html += '<span class="year">' + randomQuote.year + '</span>';
-        }
-        // tags only showed if true
-        if(randomQuote.tags){
-            html += '<p class="tags">';
-            html += randomQuote.tags.join(", ");
-            html += "</p>";
-        }
-        html += '</p>';
-        document.getElementById('quote-box').innerHTML = html;
-        getRandomBodyColor(256);
+    setInterval(function(){
+        var randomQuote = getRandomQuote(quotes);
+        var html = '<p class="quote">';
+            html += randomQuote.quote;
+            html += '</p>';
+            html += '<p class="source">';
+            html += randomQuote.source;        
+            // Citation source only added if true
+            if (randomQuote.citation){        
+                html += '<span class="citation">' + randomQuote.citation + '</span>';
+            }
+            // Year only added if true
+            if (randomQuote.year){  
+                html += '<span class="year">' + randomQuote.year + '</span>';
+            }
+            // tags only showed if true
+            if(randomQuote.tags){
+                html += '<p class="tags">';
+                html += randomQuote.tags.join(", ");
+                html += "</p>";
+            }
+            html += '</p>';
+            document.getElementById('quote-box').innerHTML = html;
+            getRandomBodyColor(256);
+    }, 30000);
 }
 
 // First launch print quote
