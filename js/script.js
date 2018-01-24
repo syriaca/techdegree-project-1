@@ -6,7 +6,8 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 var quotes = [
     {
         quote: "La vieillesse. C’est la seule maladie dont on ne peut espérer guérir.",
-        source: "Citizen Kane"
+        source: "Citizen Kane",
+        tags: ["humour", "business", "politics"]
     },
     {
         quote: "La vie c'est comme une boîte de chocolats, on ne sait jamais sur quoi on va tomber.",
@@ -41,7 +42,7 @@ function printQuote(){
         html += randomQuote.quote;
         html += '</p>';
         html += '<p class="source">';
-        html += randomQuote.source;
+        html += randomQuote.source;        
         // Citation source only added if true
         if (randomQuote.citation){        
             html += '<span class="citation">' + randomQuote.citation + '</span>';
@@ -49,6 +50,12 @@ function printQuote(){
         // Year only added if true
         if (randomQuote.year){  
             html += '<span class="year">' + randomQuote.year + '</span>';
+        }
+        // tags only showed if true
+        if(randomQuote.tags){
+            html += '<p class="tags">';
+            html += randomQuote.tags.join(", ");
+            html += "</p>";
         }
         html += '</p>';
         document.getElementById('quote-box').innerHTML = html;

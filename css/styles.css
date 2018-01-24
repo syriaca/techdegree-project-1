@@ -45,10 +45,6 @@ body {
 .source:before {
   content: "—";
 }
-.tags li {
-  display: inline-block;
-  list-style: none;
-}
 .citation {
   font-style: italic;
 }
