@@ -2,6 +2,7 @@
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+// Array with citations
 var quotes = [
     {
         quote: "La vieillesse. C’est la seule maladie dont on ne peut espérer guérir.",
@@ -27,24 +28,31 @@ var quotes = [
     }
 ];
 
+// Randomize a quote form the citations array
 function getRandomQuote(array){
     var randomNumber = Math.floor(Math.random()*array.length);
     return quotes[randomNumber];
 }
 
+// Construct the html and print array to the output div
 function printQuote(){
     var randomQuote = getRandomQuote(quotes);
-    console.log(randomQuote);
     var html = '<p class="quote">';
         html += randomQuote.quote;
         html += '</p>';
         html += '<p class="source">';
         html += randomQuote.source;
+        // Citation source only added if true
         if (randomQuote.citation){        
             html += '<span class="citation">' + randomQuote.citation + '</span>';
         }
+        // Year only added if true
         if (randomQuote.year){  
             html += '<span class="year">' + randomQuote.year + '</span>';
         }
         html += '</p>';
+        document.getElementById('quote-box').innerHTML = html;
 }
+
+// First launch print quote
+printQuote();
