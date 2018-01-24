@@ -47,7 +47,7 @@ function getRandomQuote(array){
 
 // Construct the html and print array to the output div
 function printQuote(){
-    setInterval(function(){
+   
         var randomQuote = getRandomQuote(quotes);
         var html = '<p class="quote">';
             html += randomQuote.quote;
@@ -71,8 +71,10 @@ function printQuote(){
             html += '</p>';
             document.getElementById('quote-box').innerHTML = html;
             getRandomBodyColor(256);
-    }, 30000);
+    
 }
 
-// First launch print quote
-printQuote();
+// Change quote every 30s
+setInterval(function(){
+    printQuote();
+}, 30000);
