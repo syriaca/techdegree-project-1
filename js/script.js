@@ -24,3 +24,9 @@ var quotes = [
         source: "Taxi Driver"
     },
 ];
+
+function getRandomQuote(array){
+    var randomNumber = Math.floor(Math.random()*array.length)+1;
+    randomQuote = quotes[randomNumber];
+    return randomQuote;
+}   
